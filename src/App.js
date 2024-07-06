@@ -4,10 +4,11 @@ import Footer from './components/Footer';
 import sunset from '../src/assets/sunset.jpg';
 import SearchLocation from '../src/components/SearchLocation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { WeatherProvider } from './context/location/WeatherContext';
 
 function App() {
   return (
-    <div >
+    <WeatherProvider >
       <Router Router >
         <div className="container mx-auto" >
           <Routes>
@@ -23,7 +24,7 @@ function App() {
           <Footer />
         </div>
       </Router >
-    </div >
+    </ WeatherProvider>
   );
 }
 

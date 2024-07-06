@@ -15,6 +15,12 @@ const weatherReducer = (state, action) => {
         loading: true
       };
 
+    case 'SET_NO_LOCATION':
+      return {
+        ...state,
+        noLocation: true
+      };
+
     case 'CLEAR_WEATHER_DATA':
       return {
         ...state,

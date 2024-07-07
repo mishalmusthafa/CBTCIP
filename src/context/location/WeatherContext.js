@@ -7,7 +7,7 @@ export const WeatherProvider = ({ children }) => {
   const initialState = {
     weatherData: [],
     loading: false,
-    noLocation: false,
+    noLocation: true,
   };
 
   const [state, dispatch] = useReducer(weatherReducer, initialState);

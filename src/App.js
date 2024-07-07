@@ -1,10 +1,11 @@
-import Header from './components/Header';
-import Dashboard from './pages/Dashboard';
 import Footer from './components/Footer';
-import sunset from '../src/assets/sunset.jpg';
+import Settings from './pages/Settings';
+import About from './pages/About';
+import Home from './pages/Home';
 import SearchLocation from '../src/components/SearchLocation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WeatherProvider } from './context/location/WeatherContext';
+
 
 function App() {
   return (
@@ -13,12 +14,9 @@ function App() {
         <div className="container mx-auto" >
           <Routes>
             <Route path='/location' element={<SearchLocation />} />
-            <Route path='/' element={
-              <>
-                <Header />
-                <Dashboard />
-              </>
-            } />
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/settings' element={<Settings />} />
 
           </Routes>
           <Footer />

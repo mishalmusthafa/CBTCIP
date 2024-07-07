@@ -6,6 +6,12 @@ module.exports = {
   theme: {
     fontFamily: {
       inter: ["Inter", "sans-serif"]
+    },
+
+    extend: {
+      scale: {
+        '102': '1.02'
+      }
     }
   },
   plugins: [

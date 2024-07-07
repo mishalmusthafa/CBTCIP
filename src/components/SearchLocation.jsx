@@ -26,8 +26,8 @@ function SearchLocation() {
       const weatherData = await getWeatherData(text);
       setText('');
       dispatch({ type: 'GET_WEATHER_DATA', payload: weatherData });
+      // dispatch({ type: 'SET_NO_LOCATION' });
       if (weatherData === undefined) {
-        dispatch({ type: 'SET_NO_LOCATION' });
         return alert('Location does not exist, Please check the spelling');
       }
       navigate('/');

@@ -18,7 +18,7 @@ export const getWeatherData = async (text) => {
   });
 
   try {
-    const response = await weather.get(`/forecast.json?${params}&KEY=${WEATHER_API_KEY}`);
+    const response = await weather.get(`/forecast.json?${params}&days=7&KEY=${WEATHER_API_KEY}`);
     return response.data;
   } catch (error) {
     if (error.code) {

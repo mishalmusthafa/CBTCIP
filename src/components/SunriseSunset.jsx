@@ -5,7 +5,7 @@ import sunImage from '../assets/sunset.jpg';
 
 
 function SunriseSunset() {
-  return <div className=" row-span-5 col-span-8 bg-white/15 backdrop-blur-3xl shadow-md rounded-md p-2 ">
+  return <div className=" row-span-5 col-span-8 bg-white/15 backdrop-blur-3xl shadow-md rounded-md p-2 hover:scale-102 transition ease-in-out delay-100">
     <div className='flex justify-between px-3 py-4 '>
       <div className="text-xl"><FiSunrise /></div>
       <div className="text-xl"><FiSunset /></div>

@@ -8,5 +8,5 @@
 body {
   background-image: linear-gradient(to right, #0ea5e9, #6366f1);
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }

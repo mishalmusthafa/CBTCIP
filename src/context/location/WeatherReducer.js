@@ -5,8 +5,15 @@ const weatherReducer = (state, action) => {
       return {
         ...state,
         weatherData: action.payload,
-        noLocation: false,
         loading: false,
+        error: null
+      };
+
+    case 'SET_ERROR':
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       };
 
     case 'SET_LOADING':
@@ -15,16 +22,16 @@ const weatherReducer = (state, action) => {
         loading: true
       };
 
-    case 'SET_NO_LOCATION':
+    case 'CLEAR_ERROR':
       return {
         ...state,
-        noLocation: false
+        error: null,
       };
 
     case 'CLEAR_WEATHER_DATA':
       return {
         ...state,
-        weatherData: []
+        weatherData: {}
       };
 
     default:

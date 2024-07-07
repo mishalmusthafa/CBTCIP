@@ -19,18 +19,28 @@ function SearchLocation() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!text || text === null) {
+    if (!text) {
       alert('Please enter a location');
     } else {
+
+      console.log('Submitting form with text:', text);
+
       dispatch({ type: 'SET_LOADING' });
-      const weatherData = await getWeatherData(text);
-      setText('');
-      dispatch({ type: 'GET_WEATHER_DATA', payload: weatherData });
-      // dispatch({ type: 'SET_NO_LOCATION' });
-      if (weatherData === undefined) {
-        return alert('Location does not exist, Please check the spelling');
+
+      const result = await getWeatherData(text);
+
+      console.log('Result from getWeatherData:', result);
+      if (result.success) {
+        setText('');
+        dispatch({ type: 'GET_WEATHER_DATA', payload: result.data });
+
+        console.log('Dispatched GET_WEATHER_DATA, navigating to /');
+
+        navigate('/');
+      } else {
+        dispatch({ type: 'SET_ERROR', payload: result.error.message });
+        alert(result.error.message);
       }
-      navigate('/');
     }
   };
 

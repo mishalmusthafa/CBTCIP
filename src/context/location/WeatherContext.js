@@ -5,9 +5,9 @@ import weatherReducer from './WeatherReducer';
 const WeatherContext = createContext();
 export const WeatherProvider = ({ children }) => {
   const initialState = {
-    weatherData: [],
+    weatherData: {},
     loading: false,
-    noLocation: true,
+    error: null,
   };
 
   const [state, dispatch] = useReducer(weatherReducer, initialState);

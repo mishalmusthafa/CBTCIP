@@ -6,39 +6,68 @@ import SunriseSunset from '../components/SunriseSunset';
 import WeatherForecast from '../components/WeatherForecast';
 import WeatherDetails from '../components/WeatherDetails';
 import Navigator from '../components/Navigator';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
-  const [location, setLocation] = useState(null);
-  const [error, setError] = useState(null);
-
-  // Find current position
-  function getCurrentPosition() {
-    return new Promise((resolve, reject) => {
-      if (!navigator.geolocation) {
-        reject(new Error('Geoloacation is not supported by your browser'));
-      } else {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      }
-    });
-  }
+  const navigate = useNavigate();
+  const { loading, error, weatherData, dispatch } = useContext(WeatherContext);
+  console.log(!weatherData);
 
   useEffect(() => {
-    const fetchLocation = async () => {
-      try {
-        const position = await getCurrentPosition();
-        setLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        });
-      } catch (error) {
-        setError('Failed to get location' + error.message);
-      }
-    };
-    fetchLocation();
-  }, []);
-  console.log(location);
+    // Check if weatherData is empty caomponent mount
+    console.log('weatherData in Home:', weatherData);
+    if (Object.keys(weatherData).length === 0) {
+      navigate('/location');
+    }
+  }, [weatherData, navigate]);
 
+  useEffect(() => {
+    // Reset error state when component unmount
+    return () => {
+      dispatch({ type: 'CLEAR_ERROR' });
+    };
+  }, [dispatch]);
+  // const [currLocation, setCurrLocation] = useState(null);
+
+  // Find current position
+  // function getCurrentPosition() {
+  //   return new Promise((resolve, reject) => {
+  //     if (!navigator.geolocation) {
+  //       reject(new Error('Geoloacation is not supported by your browser'));
+  //     } else {
+  //       navigator.geolocation.getCurrentPosition(resolve, reject);
+  //     }
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   const fetchLocation = async () => {
+  //     try {
+  //       const position = await getCurrentPosition();
+  //       setCurrLocation({
+  //         lat: position.coords.latitude,
+  //         lng: position.coords.longitude
+  //       });
+  //     } catch (error) {
+  //       setError('Failed to get location' + error.message);
+  //     }
+  //   };
+  //   fetchLocation();
+  // }, []);
+  // console.log(location);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  // if (error) {
+  //   return <div className='h-screen'>Please Go to the search</div>;
+  // }
+
+  if (!weatherData || Object.keys(weatherData).length === 0) {
+    return null;
+  }
 
   return <>
     <Header />

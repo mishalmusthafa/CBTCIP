@@ -9,20 +9,19 @@ import { WeatherProvider } from './context/location/WeatherContext';
 
 function App() {
   return (
-    <WeatherProvider >
-      <Router Router >
+    <Router Router >
+      <WeatherProvider >
         <div className="container mx-auto" >
           <Routes>
-            <Route path='/location' element={<SearchLocation />} />
             <Route path='/' element={<Home />} />
+            <Route path='/location' element={<SearchLocation />} />
             <Route path='/about' element={<About />} />
             <Route path='/settings' element={<Settings />} />
-
           </Routes>
           <Footer />
         </div>
-      </Router >
-    </ WeatherProvider>
+      </ WeatherProvider>
+    </Router >
   );
 }
 

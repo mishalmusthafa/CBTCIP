@@ -12,24 +12,9 @@ import { IoSunnyOutline } from "react-icons/io5";
 
 function WeatherDetails() {
   const { weatherData, loading, noLocation } = useContext(WeatherContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (noLocation) {
-      navigate('/location');
-      return;
-    }
-  }, [weatherData]);
-  // console.log(current.feelslike_c);
 
   const { location, current, forecast } = weatherData;
 
-  useEffect(() => {
-    if (weatherData === undefined) {
-      navigate('/location');
-      return;
-    }
-  }, [weatherData]);
 
   const checkUV = (uv) => {
     if (uv > 0 && uv <= 3) {
@@ -46,56 +31,52 @@ function WeatherDetails() {
   };
 
 
-  if (weatherData) {
-
-    return <div className=" row-span-5 col-span-8  ">
-      <div className="grid grid-cols-3 grid-rows-2 h-full w-full gap-3 justify-center shadow-md  ">
-        <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
-          <div className="flex flex-col">
-            <BsThermometer />
-            <small className='mt-2 text-xs text-gray-200' >Feels like</small>
-            <p className='font-semibold text-xl'>{Math.floor(current.feelslike_c)}&deg;</p>
-          </div>
-        </div>
-        <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
-          <div className="flex flex-col">
-            <GiWindsock />
-            <small className='mt-2 text-xs text-gray-200' >SW wind</small>
-            <p className='font-semibold text-xl'>{Math.floor(current.wind_kph)}<span className='font-normal text-sm'> km/h</span></p>
-          </div>
-        </div>
-        <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
-          <div className="flex flex-col">
-            <WiHumidity />
-            <small className='mt-2 text-xs text-gray-200' >Humidity</small>
-            <p className='font-semibold text-xl'>{Math.floor(current.humidity)}<span className='font-normal text-sm'>%</span></p>
-          </div>
-        </div>
-        <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
-          <div className="flex flex-col">
-            <TbUvIndex />
-            <small className='mt-2 text-xs text-gray-200' >UV</small>
-            <p className='font-semibold text-xl'>{Math.floor(current.uv)}<span className='font-normal text-sm'> {checkUV(current.uv)}</span></p>
-          </div>
-        </div>
-        <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
-          <div className="flex flex-col">
-            <VscEye />
-            <small className='mt-2 text-xs text-gray-200' >Visibility</small>
-            <p className='font-semibold text-xl'>{Math.floor(current.vis_km)}<span className='font-normal text-sm'> km</span></p>
-          </div>
-        </div>
-        <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
-          <div className="flex flex-col">
-            <IoSunnyOutline />
-            <small className='mt-2 text-xs text-gray-200' >Heat Index</small>
-            <p className='font-semibold text-xl'>{Math.floor(current.heatindex_c)}&deg;</p>
-          </div>
+  return <div className=" row-span-5 col-span-8  ">
+    <div className="grid grid-cols-3 grid-rows-2 h-full w-full gap-3 justify-center shadow-md  ">
+      <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
+        <div className="flex flex-col">
+          <BsThermometer />
+          <small className='mt-2 text-xs text-gray-200' >Feels like</small>
+          <p className='font-semibold text-xl'>{Math.floor(current.feelslike_c)}&deg;</p>
         </div>
       </div>
-    </div>;
-  }
-
-};
+      <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
+        <div className="flex flex-col">
+          <GiWindsock />
+          <small className='mt-2 text-xs text-gray-200' >SW wind</small>
+          <p className='font-semibold text-xl'>{Math.floor(current.wind_kph)}<span className='font-normal text-sm'> km/h</span></p>
+        </div>
+      </div>
+      <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
+        <div className="flex flex-col">
+          <WiHumidity />
+          <small className='mt-2 text-xs text-gray-200' >Humidity</small>
+          <p className='font-semibold text-xl'>{Math.floor(current.humidity)}<span className='font-normal text-sm'>%</span></p>
+        </div>
+      </div>
+      <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
+        <div className="flex flex-col">
+          <TbUvIndex />
+          <small className='mt-2 text-xs text-gray-200' >UV</small>
+          <p className='font-semibold text-xl'>{Math.floor(current.uv)}<span className='font-normal text-sm'> {checkUV(current.uv)}</span></p>
+        </div>
+      </div>
+      <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
+        <div className="flex flex-col">
+          <VscEye />
+          <small className='mt-2 text-xs text-gray-200' >Visibility</small>
+          <p className='font-semibold text-xl'>{Math.floor(current.vis_km)}<span className='font-normal text-sm'> km</span></p>
+        </div>
+      </div>
+      <div className="bg-white/15 backdrop-blur-xl rounded-md p-3 hover:scale-102 transition ease-in-out delay-100">
+        <div className="flex flex-col">
+          <IoSunnyOutline />
+          <small className='mt-2 text-xs text-gray-200' >Heat Index</small>
+          <p className='font-semibold text-xl'>{Math.floor(current.heatindex_c)}&deg;</p>
+        </div>
+      </div>
+    </div>
+  </div>;
+}
 
 export default WeatherDetails;

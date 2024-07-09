@@ -23,7 +23,7 @@ const IoMdSnow = lazy(() => import('react-icons/io').then(module => ({ default: 
 const TiWeatherSnow = lazy(() => import('react-icons/ti').then(module => ({ default: module.TiWeatherSnow })));
 const WiSnow = lazy(() => import('react-icons/wi').then(module => ({ default: module.WiSnow })));
 const FaCloudShowersHeavy = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaCloudShowersHeavy })));
-const RiShowersFill = lazy(() => import('react-icons/ri').then(module => ({ default: module.RiShowersFill })));
+const RiShowersFill = lazy(() => import('react-icons/wi').then(module => ({ default: module.WiShowers })));
 const WiThunderstorm = lazy(() => import('react-icons/wi').then(module => ({ default: module.WiThunderstorm })));
 const IoThunderstorm = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoThunderstorm })));
 const WiDaySnowThunderstorm = lazy(() => import('react-icons/wi').then(module => ({ default: module.WiDaySnowThunderstorm })));

@@ -11,6 +11,9 @@ module.exports = {
     extend: {
       scale: {
         '102': '1.02'
+      },
+      animation: {
+        'spin-once': 'spin 0.6s linear 0.5',
       }
     }
   },

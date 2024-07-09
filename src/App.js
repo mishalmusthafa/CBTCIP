@@ -3,6 +3,7 @@ import Settings from '../src/components/pages/Settings';
 import About from '../src/components/pages/About';
 import Home from '../src/components/pages/Home';
 import User from '../src/components/pages/User';
+import NotFound from '../src/components/pages/NotFound';
 import SearchLocation from '../src/components/layout/SearchLocation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WeatherProvider } from './context/location/WeatherContext';
@@ -20,6 +21,7 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/settings' element={<Settings />} />
             <Route path='/user' element={<User />} />
+            <Route path='/*' element={<NotFound />} />
           </Routes>
           <Footer />
         </div>

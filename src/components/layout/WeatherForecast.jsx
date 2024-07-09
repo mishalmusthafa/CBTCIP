@@ -30,9 +30,9 @@ function WeatherForecast() {
     return (days[dayNum]);
   };
 
-  return <div className="row-span-10  col-span-3 bg-white/10 backdrop-blur-3xl shadow-md rounded-md p-2 h-full">
+  return <div className="row-span-10  col-span-3 bg-white/10 backdrop-blur-3xl shadow-md rounded-md p-2 h-full hover:scale-102 transition ease-in duration-75">
     {dailyForecast.map(({ date_epoch, maxtemp_c, mintemp_c, condition, code }) => (
-      <div className='grid grid-cols-4 gap-0 py-2 px-2 mb-3' key={date_epoch}>
+      <div className='grid grid-cols-4 gap-0 py-2 px-2 mb-3 ' key={date_epoch} >
         <p className='col-span-1 pr-3 text-ellipsis overflow-hidden '>{checkDay(date_epoch)}</p>
         <div className='flex flex-row text-nowrap col-span-2 justify-start '>
           <span className='pt-1 mr-1 '>{getWeatherIcon(code)}</span>

@@ -23,8 +23,8 @@ function Header() {
           <span className='mr-5'>{Math.floor(forecast.forecastday[0].day.mintemp_c)}&deg; / {Math.floor(forecast.forecastday[0].day.maxtemp_c)}&deg;</span>
           <span>Average Temperature: {Math.floor(forecast.forecastday[0].day.avgtemp_c)}&deg;</span>
         </div>
-        <div className='absolute top-0 right-0 sm:relative '>
-          <span className='text-3xl sm:text-9xl'>
+        <div className='absolute top-0 right-0 hover:scale-105 transition ease-in duration-75 sm:relative '>
+          <span className='text-3xl sm:text-9xl '>
             {getWeatherIcon(current.condition.code)}
           </span>
         </div>

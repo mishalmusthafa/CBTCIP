@@ -109,7 +109,7 @@ function SearchLocation() {
       </div>)}
 
 
-      <button className='w-full px-5 py-3 text-white rounded-xl bg-white/15 backdrop-blur-xl mb-10 hover:scale-102 transition ease-in-out delay-100 md:max-w-sm' onClick={fetchLocation}><MdLocationOn className='text-lg inline-block mb-2' />Your Location Weather</button>
+      <button className='btn w-full bg-white/15 backdrop-blur-xl mb-10 hover:bg-secondary text-xl border-none md:max-w-sm' onClick={fetchLocation}><MdLocationOn className='text-xl inline-block mb-2' />Your Location Weather</button>
       <form className='join min-w-full' onSubmit={onSubmit}>
         <input className="input input-bordered join-item w-full text-black md:max-w-lg" onChange={onChange} placeholder="Location" value={text} />
         <button className="btn btn-secondary text-white join-item rounded-r-xl" >Search</button>

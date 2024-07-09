@@ -76,7 +76,7 @@ const weatherIcons = {
 export const WeatherIcon = ({ code }) => {
   const Icon = weatherIcons[code] || IoPartlySunny;
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>...</div>}>
       <Icon />
     </Suspense>
   );

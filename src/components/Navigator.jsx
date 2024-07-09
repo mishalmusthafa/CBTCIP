@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function Navigator() {
   return <div className="row-span-10 col-span-1 bg-white/15 backdrop-blur-3xl shadow-md rounded-md p-2 text-ellipsis overflow-hidden ">
     <div className='flex flex-row md:flex-col h-full w-full justify-around items-center'>
-      <Link to={'/home'} className='flex flex-col items-center w-full md:mb-5'>
+      <Link to={'/user'} className='flex flex-col items-center w-full md:mb-5'>
         <FaRegCircleUser className='text-4xl' /><small>User</small>
       </Link >
 

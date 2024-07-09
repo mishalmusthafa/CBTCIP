@@ -11,13 +11,24 @@ const weather = axios.create({
 });
 
 // Get weather data
-export const getWeatherData = async (text) => {
-  const params = new URLSearchParams({
-    q: text,
-    days: '7',
-    key: WEATHER_API_KEY
-  });
+export const getWeatherData = async (location) => {
 
+  let params;
+
+  if (typeof location === 'string') {
+    params = new URLSearchParams({
+      q: location,
+      days: '7',
+      key: WEATHER_API_KEY
+    });
+  } else if (typeof location === 'object' && location.lat && location.lng) {
+    console.log('Getting object for location parameter', location.lng, location.lat);
+    params = new URLSearchParams({
+      q: `${location.lat},${location.lng}`,
+      days: '7',
+      key: WEATHER_API_KEY
+    });
+  }
   try {
     const response = await weather.get(`/forecast.json?${params}`);
     return { success: true, data: response.data };

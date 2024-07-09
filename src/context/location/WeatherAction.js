@@ -30,8 +30,10 @@ export const getWeatherData = async (location) => {
       key: WEATHER_API_KEY
     });
   }
+  console.log('Created the parameter with location');
   try {
     const response = await weather.get(`/forecast.json?${params}`);
+    console.log('Fetched the response with api', response);
     return { success: true, data: response.data };
   } catch (error) {
     if (error.response) {

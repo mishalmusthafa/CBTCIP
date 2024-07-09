@@ -16,6 +16,7 @@ export const getWeatherData = async (location) => {
   let params;
 
   if (typeof location === 'string') {
+    console.log('Getting location name to the api', location);
     params = new URLSearchParams({
       q: location,
       days: '7',

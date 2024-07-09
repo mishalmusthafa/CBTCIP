@@ -36,6 +36,7 @@ export const getWeatherData = async (location) => {
     if (error.response) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
+      console.log(error.response.message);
       return {
         success: false,
         error: {
@@ -45,6 +46,7 @@ export const getWeatherData = async (location) => {
       };
     } else if (error.request) {
       // The request was made but no response was recieved
+      console.log('No response recieved from the server');
       return {
         success: false,
         error: {
@@ -52,6 +54,7 @@ export const getWeatherData = async (location) => {
         }
       };
     } else {
+      console.log('An unknown error occured');
       return {
         success: false,
         error: {

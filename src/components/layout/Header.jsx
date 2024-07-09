@@ -1,15 +1,11 @@
 import { FaLocationDot } from "react-icons/fa6";
-import { useEffect, useState, useContext } from 'react';
-import { getWeatherIcon } from '../utils/weatherIcon';
-import { animated, useSpring } from '@react-spring/web';
+import { useContext } from 'react';
+import { getWeatherIcon } from '../../utils/weatherIcon';
 import { Link } from 'react-router-dom';
-import WeatherContext from '../context/location/WeatherContext';
-import { useNavigate } from 'react-router-dom';
-import { BiSearch } from 'react-icons/bi';
-
+import WeatherContext from '../../context/location/WeatherContext';
 
 function Header() {
-  const { loading, weatherData, noLocation } = useContext(WeatherContext);
+  const { weatherData } = useContext(WeatherContext);
   const { location, current, forecast } = weatherData;
 
   return <>

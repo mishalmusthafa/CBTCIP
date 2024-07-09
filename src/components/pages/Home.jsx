@@ -1,13 +1,12 @@
-import Header from '../components/Header';
-import WeatherContext from '../context/location/WeatherContext';
-import { useContext, useState, useEffect } from 'react';
-import { getWeatherData } from '../context/location/WeatherAction';
-import SunriseSunset from '../components/SunriseSunset';
-import WeatherForecast from '../components/WeatherForecast';
-import WeatherDetails from '../components/WeatherDetails';
-import Navigator from '../components/Navigator';
+import Header from '../layout/Header';
+import WeatherContext from '../../context/location/WeatherContext';
+import { useContext, useEffect } from 'react';
+import SunriseSunset from '../layout/SunriseSunset';
+import WeatherForecast from '../layout/WeatherForecast';
+import WeatherDetails from '../layout/WeatherDetails';
+import Navigator from '../layout/Navigator';
 import { useNavigate } from 'react-router-dom';
-import Spinner from '../components/Spinner';
+import Spinner from '../layout/Spinner';
 
 function Home() {
 
@@ -16,8 +15,6 @@ function Home() {
 
   useEffect(() => {
     // Check if weatherData is empty caomponent mount
-    console.log('Entered to Home component');
-    console.log('weatherData in Home:', weatherData);
     if (Object.keys(weatherData).length === 0) {
       navigate('/location');
     }
@@ -30,13 +27,16 @@ function Home() {
     };
   }, [dispatch]);
 
-
-  // if (loading) {
-  //   return <Spinner />;
-  // }
+  if (error) {
+    return alert(error.message);
+  }
 
   if (!weatherData || Object.keys(weatherData).length === 0) {
     return null;
+  }
+
+  if (loading) {
+    return <Spinner />;
   }
 
   return <>

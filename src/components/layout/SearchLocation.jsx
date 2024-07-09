@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { IoMdArrowBack } from "react-icons/io";
 import { useState, useContext } from 'react';
-import WeatherContext from '../context/location/WeatherContext';
-import { getWeatherData } from '../context/location/WeatherAction';
+import WeatherContext from '../../context/location/WeatherContext';
+import { getWeatherData } from '../../context/location/WeatherAction';
 import { useNavigate } from 'react-router-dom';
 import { MdLocationOn } from "react-icons/md";
 import Spinner from './Spinner';
@@ -35,7 +35,6 @@ function SearchLocation() {
   }
 
   const fetchLocation = async () => {
-    console.log('triyig');
     try {
       const position = await getCurrentPosition();
       console.log('fetched current location');
@@ -62,7 +61,6 @@ function SearchLocation() {
         alert(error.message);
       }
     } catch (error) {
-      console.log('catching error');
       console.error('Error fetching location or weather data', error);
       dispatch({ type: 'SET_ERROR', payload: error.message });
       let errorMessage = 'An error occurred while fetching data.';

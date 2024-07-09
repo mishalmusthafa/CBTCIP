@@ -1,8 +1,5 @@
-import React from "react";
 import { IoSettings } from "react-icons/io5";
-import { MdExplore, MdOutlineExplore } from "react-icons/md";
 import { TiWeatherPartlySunny } from "react-icons/ti";
-import { FaLocationDot } from "react-icons/fa6";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 

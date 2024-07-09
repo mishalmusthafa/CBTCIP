@@ -1,9 +1,9 @@
-import WeatherContext from '../context/location/WeatherContext';
-import { useEffect, useState, useContext } from 'react';
-import { getWeatherIcon } from '../utils/weatherIcon';
+import WeatherContext from '../../context/location/WeatherContext';
+import { useContext } from 'react';
+import { getWeatherIcon } from '../../utils/weatherIcon';
 
 function WeatherForecast() {
-  const { weatherData, loading, noLocation } = useContext(WeatherContext);
+  const { weatherData } = useContext(WeatherContext);
 
   const dailyForecast = weatherData.forecast.forecastday.map(day => ({
     date: day.date,

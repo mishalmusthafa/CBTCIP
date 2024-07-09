@@ -1,6 +1,5 @@
-import WeatherContext from '../context/location/WeatherContext';
-import { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import WeatherContext from '../../context/location/WeatherContext';
+import { useContext } from 'react';
 import { BsThermometer } from 'react-icons/bs';
 import { GiWindsock } from "react-icons/gi";
 import { WiHumidity } from "react-icons/wi";
@@ -11,9 +10,9 @@ import { IoSunnyOutline } from "react-icons/io5";
 
 
 function WeatherDetails() {
-  const { weatherData, loading, noLocation } = useContext(WeatherContext);
+  const { weatherData } = useContext(WeatherContext);
 
-  const { location, current, forecast } = weatherData;
+  const { current } = weatherData;
 
 
   const checkUV = (uv) => {

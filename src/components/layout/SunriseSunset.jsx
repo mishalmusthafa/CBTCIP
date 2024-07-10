@@ -4,7 +4,7 @@ import { FiSunset } from "react-icons/fi";
 
 
 function SunriseSunset() {
-  return <div className=" row-span-5 col-span-8 bg-white/15 backdrop-blur-3xl shadow-md rounded-md p-2 hover:scale-102 transition ease-in duration-75">
+  return <div className=" row-span-5 col-span-8 bg-white/10 backdrop-blur-2xl shadow-md rounded-md p-2 hover:scale-102 transition ease-in duration-75">
     <div className='flex flex-col  justify-between h-full'>
       <div className='flex justify-between px-3 py-4 '>
         <div className="text-xl"><FiSunrise /></div>

@@ -5,7 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 body {
-  background-image: linear-gradient(to right, #0ea5e9, #6366f1);
+  /* background-image: linear-gradient(to right, #0ea5e9, #6366f1); */
+  background-image: url('https://images.unsplash.com/photo-1561485039-765c8e81686d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
+
+  /* background-size: 100% 100%; */
+
+  /* float: left; */
+
+  /* width: auto; */
 }

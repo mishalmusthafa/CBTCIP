@@ -5,12 +5,13 @@ import Home from '../src/components/pages/Home';
 import User from '../src/components/pages/User';
 import NotFound from '../src/components/pages/NotFound';
 import SearchLocation from '../src/components/layout/SearchLocation';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { WeatherProvider } from './context/location/WeatherContext';
-
-
+import { useEffect } from 'react';
 
 function App() {
+
+
   return (
     <Router Router >
       <WeatherProvider >

@@ -1,3 +1,4 @@
+import react from "react";
 import WeatherContext from '../../context/location/WeatherContext';
 import { useContext } from 'react';
 import { getWeatherIcon } from '../../utils/weatherIcon';

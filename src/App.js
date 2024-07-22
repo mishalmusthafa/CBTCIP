@@ -5,30 +5,33 @@ import Home from '../src/components/pages/Home';
 import User from '../src/components/pages/User';
 import NotFound from '../src/components/pages/NotFound';
 import SearchLocation from '../src/components/layout/SearchLocation';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useLocation,
+} from 'react-router-dom';
 import { WeatherProvider } from './context/location/WeatherContext';
 import { useEffect } from 'react';
 
 function App() {
-
-
-  return (
-    <Router Router >
-      <WeatherProvider >
-        <div className="container mx-auto h-full" >
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/location' element={<SearchLocation />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/settings' element={<Settings />} />
-            <Route path='/user' element={<User />} />
-            <Route path='/*' element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </div>
-      </ WeatherProvider>
-    </Router >
-  );
+    return (
+        <Router Router>
+            <WeatherProvider>
+                <div className="container mx-auto h-full">
+                    <Routes>
+                        <Route path="/" element={<SearchLocation />} />
+                        <Route path="/weather-details" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/settings" element={<Settings />} />
+                        <Route path="/user" element={<User />} />
+                        <Route path="/*" element={<NotFound />} />
+                    </Routes>
+                    <Footer />
+                </div>
+            </WeatherProvider>
+        </Router>
+    );
 }
 
 export default App;

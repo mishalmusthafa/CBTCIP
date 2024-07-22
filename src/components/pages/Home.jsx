@@ -9,48 +9,45 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 
 function Home() {
+    const navigate = useNavigate();
+    const { loading, error, weatherData, dispatch } =
+        useContext(WeatherContext);
 
-  const navigate = useNavigate();
-  const { loading, error, weatherData, dispatch } = useContext(WeatherContext);
+    useEffect(() => {
+        // Check if weatherData is empty caomponent mount
+        if (Object.keys(weatherData).length === 0) {
+            navigate('/');
+        }
+    }, [weatherData, navigate]);
 
-  useEffect(() => {
-    // Check if weatherData is empty caomponent mount
-    if (Object.keys(weatherData).length === 0) {
-      navigate('/location');
+    useEffect(() => {
+        // Reset error state when component unmount
+        return () => {
+            dispatch({ type: 'CLEAR_ERROR' });
+        };
+    }, [dispatch]);
+
+    if (!weatherData || Object.keys(weatherData).length === 0) {
+        return null;
     }
-  }, [weatherData, navigate]);
 
-  useEffect(() => {
-    // Reset error state when component unmount
-    return () => {
-      dispatch({ type: 'CLEAR_ERROR' });
-    };
-  }, [dispatch]);
+    if (loading) {
+        return <Spinner />;
+    }
 
-  if (error) {
-    return alert(error.message);
-  }
-
-  if (!weatherData || Object.keys(weatherData).length === 0) {
-    return null;
-  }
-
-  if (loading) {
-    return <Spinner />;
-  }
-
-  return <>
-    <div className='min-h-screen min-w-screen'>
-      <Header />
-      <div className="flex flex-col px-5 lg:grid grid-rows-10 grid-cols-12 gap-4 pb-10 w-100 ">
-        <Navigator />
-        <SunriseSunset />
-        <WeatherForecast />
-        <WeatherDetails />
-      </div>
-    </div>
-
-  </>;
+    return (
+        <>
+            <div className="min-h-screen min-w-screen">
+                <Header />
+                <div className="flex flex-col px-5 lg:grid grid-rows-10 grid-cols-12 gap-4 pb-10 w-100 ">
+                    <Navigator />
+                    <SunriseSunset />
+                    <WeatherForecast />
+                    <WeatherDetails />
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default Home;

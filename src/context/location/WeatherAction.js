@@ -1,10 +1,7 @@
 import axios from 'axios';
 
 const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-const BASE_URL =
-    process.env.NODE_ENV === 'development '
-        ? '/api'
-        : 'https://api.weatherapi.com/v1';
+const BASE_URL = 'https://api.weatherapi.com/v1';
 
 const weather = axios.create({
     baseURL: BASE_URL,
@@ -13,7 +10,6 @@ const weather = axios.create({
     },
 });
 
-// Get weather data
 export const getWeatherData = async (location) => {
     let params;
 
@@ -42,34 +38,32 @@ export const getWeatherData = async (location) => {
         console.log('Fetched the response with api', response);
         return { success: true, data: response.data };
     } catch (error) {
+        console.error('Error details:', error);
         if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log(error.response.message);
+            console.log('Error response:', error.response);
             return {
                 success: false,
                 error: {
                     status: error.response.status,
                     message:
-                        error.response.message ||
-                        'An error occured Please check the spelling of location',
+                        error.response.data.error.message ||
+                        'An error occurred. Please check the spelling of location',
                 },
             };
         } else if (error.request) {
-            // The request was made but no response was recieved
-            console.log('No response recieved from the server');
+            console.log('No response received from the server');
             return {
                 success: false,
                 error: {
-                    message: 'No response recieved from the server',
+                    message: 'No response received from the server',
                 },
             };
         } else {
-            console.log('An unknown error occured');
+            console.log('An unknown error occurred');
             return {
                 success: false,
                 error: {
-                    message: error.message || 'An unknown error occured',
+                    message: error.message || 'An unknown error occurred',
                 },
             };
         }

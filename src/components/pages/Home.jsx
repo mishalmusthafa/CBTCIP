@@ -10,8 +10,7 @@ import Spinner from '../layout/Spinner';
 
 function Home() {
     const navigate = useNavigate();
-    const { loading, error, weatherData, dispatch } =
-        useContext(WeatherContext);
+    const { loading, weatherData, dispatch } = useContext(WeatherContext);
 
     useEffect(() => {
         // Check if weatherData is empty caomponent mount

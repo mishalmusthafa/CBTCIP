@@ -117,7 +117,7 @@ function SearchLocation() {
                 )}
 
                 <button
-                    className="btn w-full bg-white/10 backdrop-blur-2xl mb-10 hover:bg-secondary text-xl border-none md:max-w-sm"
+                    className="btn w-full bg-white/10 backdrop-blur-2xl mb-10 hover:bg-secondary text-white text-xl border-none md:max-w-sm"
                     onClick={fetchLocation}
                 >
                     <MdLocationOn className="text-xl inline-block mb-2" />

@@ -2,55 +2,42 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  theme: {
-    fontFamily: {
-      inter: ["Inter", "sans-serif"]
+    content: ['./src/**/*.{js,jsx,ts,tsx,}'],
+    theme: {
+        fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+        },
+
+        extend: {
+            scale: {
+                102: '1.02',
+            },
+            animation: {
+                'spin-once': 'spin 0.6s linear 0.5',
+            },
+        },
     },
+    plugins: [require('daisyui')],
 
-    extend: {
-      scale: {
-        '102': '1.02'
-      },
-      animation: {
-        'spin-once': 'spin 0.6s linear 0.5',
-      }
-    }
-  },
-  plugins: [
-    require('daisyui'),
-  ],
+    daisyui: {
+        themes: [
+            {
+                mytheme: {
+                    primary: '#008eff',
 
-  daisyui: {
-    themes: [{
-      mytheme: {
+                    secondary: '#00c6ff',
 
-        "primary": "#008eff",
+                    'base-content': '#6dd5ed',
 
-        "secondary": "#00c6ff",
+                    info: '#0072de',
 
-        "accent": "#00e38e",
+                    success: '#42d242',
 
-        "neutral": "#1d1d1d",
+                    warning: '#ff8600',
 
-
-        // "base-100": "#D69E36",
-
-        "base-200": "#F0F2F5",
-
-        "base-300": "#bebebe",
-
-        "base-content": "#fff",
-
-        "info": "#0072de",
-
-        "success": "#42d242",
-
-        "warning": "#ff8600",
-
-        "error": "#ff8d8c",
-      },
-    }],
-  },
-}
-
+                    error: '#ff8d8c',
+                },
+            },
+        ],
+    },
+};

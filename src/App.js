@@ -7,12 +7,14 @@ import NotFound from '../src/components/pages/NotFound';
 import SearchLocation from '../src/components/layout/SearchLocation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WeatherProvider } from './context/location/WeatherContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
         <Router Router>
             <WeatherProvider>
-                <div className="container mx-auto h-full ">
+                <div className="container mx-auto px-4 max-w-7xl h-full ">
                     <Routes>
                         <Route path="/" element={<SearchLocation />} />
                         <Route path="/weather-details" element={<Home />} />
@@ -24,6 +26,7 @@ function App() {
                     <Footer />
                 </div>
             </WeatherProvider>
+            <ToastContainer />
         </Router>
     );
 }

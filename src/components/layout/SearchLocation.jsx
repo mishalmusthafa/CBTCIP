@@ -7,6 +7,7 @@ import { getWeatherData } from '../../context/location/WeatherAction';
 import { useNavigate } from 'react-router-dom';
 import { MdLocationOn } from 'react-icons/md';
 import Spinner from './Spinner';
+import { toast } from 'react-toastify';
 
 function SearchLocation() {
     const navigate = useNavigate();
@@ -58,7 +59,7 @@ function SearchLocation() {
                 console.log('dispatched the data to global');
             } else {
                 dispatch({ type: 'SET_ERROR', payload: result.error.message });
-                alert(error.message);
+                toast.error(error.message);
             }
         } catch (error) {
             console.error('Error fetching location or weather data', error);
@@ -73,7 +74,7 @@ function SearchLocation() {
             } else if (error.code === 3) {
                 errorMessage = 'Location request timed out. Please try again.';
             }
-            alert(errorMessage);
+            toast.error(errorMessage);
         }
     };
 
@@ -81,7 +82,7 @@ function SearchLocation() {
     const onSubmit = async (e) => {
         e.preventDefault();
         if (!text) {
-            alert('Please enter a location');
+            toast.error('Please enter a location');
         } else {
             dispatch({ type: 'SET_LOADING' });
             const result = await getWeatherData(text);
@@ -91,7 +92,7 @@ function SearchLocation() {
                 navigate('/weather-details');
             } else {
                 dispatch({ type: 'SET_ERROR', payload: result.error.message });
-                alert(result.error.message);
+                toast.error(result.error.message);
             }
         }
     };
